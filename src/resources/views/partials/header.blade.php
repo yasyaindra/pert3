@@ -11,6 +11,9 @@
                         <a class="nav-link" href="/">Home</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="{{ route('blog') }}">Blog</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="{{ route('profile') }}">Profile</a>
                     </li>
                 </ul>
