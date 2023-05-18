@@ -35,14 +35,14 @@ Route::get('password', [UserController::class, 'password'])->name('password');
 Route::post('password', [UserController::class, 'password_action'])->name('password.action');
 Route::get('logout', [UserController::class, 'logout'])->name('logout');
 
-Route::get('product', [ProductController::class,'index'])->name('product');
-Route::get('product/create', [ProductController::class,'create'])->name('product.create');
-Route::post('product/create', [ProductController::class,'store'])->name('product.action.create');
+Route::get('product', [ProductController::class,'index'])->name('product')->middleware('auth');
+Route::get('product/create', [ProductController::class,'create'])->name('product.create')->middleware('auth');;
+Route::post('product/create', [ProductController::class,'store'])->name('product.store')->middleware('auth');;
 
-Route::post('product/{id}/delete', [ProductController::class,'destroy'])->name('product.destroy');
-Route::get('product/{id}/edit', [ProductController::class,'edit'])->name('product.edit');
-Route::post('product/{id}/edit', [ProductController::class,'update'])->name('product.update');
+Route::post('product/{id}/delete', [ProductController::class,'destroy'])->name('product.destroy')->middleware('auth');;
+Route::get('product/{id}/edit', [ProductController::class,'edit'])->name('product.edit')->middleware('auth');;
+Route::post('product/{id}/edit', [ProductController::class,'update'])->name('product.update')->middleware('auth');;
 
-Route::get('product/{id}', [ProductController::class,'show'])->name('product.show');
+Route::get('product/{id}', [ProductController::class,'show'])->name('product.show')->middleware('auth');;
 
 

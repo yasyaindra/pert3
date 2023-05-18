@@ -10,7 +10,6 @@
         <table class="table col-lg-6">
             <thead>
                 <tr class="text-center">
-                    <th scope="col">No</th>
                     <th scope="col">Name</th>
                     <th scope="col">Action</th>
                 </tr>
@@ -18,7 +17,6 @@
             <tbody>
                 @foreach ($products as $product)
                     <tr class="text-center">
-                        <th scope="row">{{ $product->id }}</th>
                         <td>{{ $product->name }}</td>
                         <td>
                             <a href="/product/{{ $product->id }}" target="_blank" class="btn btn-primary">Detail</a>

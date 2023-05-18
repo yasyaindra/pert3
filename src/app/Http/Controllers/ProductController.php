@@ -42,6 +42,7 @@ class ProductController extends Controller
 
         $product = new Product([
             'name' => $request->name,
+            'user_id'=> auth()->user()->id
         ]);
         $product->save();
 
@@ -57,7 +58,7 @@ class ProductController extends Controller
     public function show($id)
     {
         //
-        $product = Product::find($id);
+        $product = Product::findOrFail($id);
         return view('product.detail', ['product' => $product, 'data' => 'Detail Product']);
     }
 
@@ -69,7 +70,7 @@ class ProductController extends Controller
      */
     public function edit($id)
     {   
-        $product = Product::find($id);
+        $product = Product::findOrFail($id);
         return view('product.edit', ['product' => $product, 'data' => 'Edit Product']);
     }
 
@@ -99,7 +100,7 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        $delete = Product::find($id);
+        $delete = Product::findOrFail($id);
         $delete->delete();
         return redirect('/product')->with('success','product deleted successfully');
     }

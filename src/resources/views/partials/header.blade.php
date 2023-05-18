@@ -13,6 +13,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('blog') }}">Blog</a>
                     </li>
+                    @auth
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('product') }}">Product</a>
+                        </li>
+                    @endauth
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('profile') }}">Profile</a>
                     </li>
